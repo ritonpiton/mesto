@@ -1,0 +1,13 @@
+.header{
+    width: 100%;
+    max-width: 880px;
+    padding-top: 28px;
+}
+
+@media all and (min-width: 900px){
+    .header{
+        padding-top: 45px;
+    }
+}
+
+

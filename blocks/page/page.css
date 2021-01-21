@@ -1,0 +1,19 @@
+.page{
+    background-color: black;
+    color: white;
+    max-width: 880px;
+    min-width: 320px;
+    font-family: "Inter", "Arial", sans-serif;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+
+    /* сглаживание шрифтов */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* подгонка размеров текста */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%; 
+}

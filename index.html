@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="портфолио Маргариты Аксютиной на Яндекс.Практикуме">
+  <meta name="keywords" content="html. css, javascript">
+  <meta name="author" content="Маргарита Аксютина">
+  <link rel="stylesheet" type="text/css" href="./pages/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto Russia</title>
+</head>
+
+<body class="page">
+    <header class="header">
+        <img class=header__logo src="./images/logo.svg" alt="Лого">
+        <div class=header__line></div>
+    </header>
+    <main class="content">
+        <section class="profile">
+            <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
+            <div class="profile__cover">
+                <h1 class=profile__title>Жак-Ив Кусто</h1>
+                <button class="profile__edit-btn"></button>
+                <p class=profile__description>Исследователь океана</p>
+            </div>
+            <button class="profile__add-btn">+</button>
+        </section>
+
+        <section class="places">
+            <div class="place">
+                <img class="place__image" alt="Изображение 1" src="./images/__image.jpg">
+                <div class="place__content">
+                    <h2 class="place__title">Карачаево-Черкесск</h2>
+                    <div class="place__like"></div>
+                </div>
+            </div> 
+
+            <div class="place">
+                <img class="place__image" alt="Изображение 2" src="./images/__image-1.jpg">
+                <div class="place__content">
+                    <h2 class="place__title">Гора Эльбрус</h2>
+                    <div class="place__like"></div>
+                </div>    
+            </div>
+                
+            <div class="place">
+                <img class="place__image" alt="Изображение 3" src="./images/__image-2.jpg">
+                <div class="place__content">
+                    <h2 class="place__title">Домбай</h2>
+                    <div class="place__like"></div>
+                </div>    
+            </div>
+            
+            <div class="place">
+                <img class="place__image" alt="Изображение 4" src="./images/__image-3.jpg">
+                
+                <div class="place__content">
+                    <h2 class="place__title">Алтай</h2>
+                    <div class="place__like"></div>
+                </div>    
+            </div>
+
+            <div class="place">
+                <img class="place__image" alt="Изображение 5" src="./images/__image-4.jpg">
+                <div class="place__content">
+                    <h2 class="place__title">Карелия</h2>
+                    <div class="place__like"></div>
+                </div>                
+            </div>
+
+            <div class="place">
+                <img class="place__image" alt="Изображение 6" src="./images/__image-5.jpg">
+                <div class="place__content">
+                    <h2 class="place__title">Кольский</h2>
+                    <div class="place__like"></div>
+                </div>
+            </div>    
+        </section>
+        
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2020. Маргарита Аксютина</p>
+        </footer>  
+        <section class="overlay overlay_active">
+            <div class="popup popup_open">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <div class="input">
+                    <input type="text" placeholder="Имя" class="input__text input__text_type_name">
+                    <input type="text" placeholder="О себе" class="input__text input__text_type_description">
+                    <button class="form__submit-btn form__submit-btn_action_save">Сохранить</button>
+                </div>  
+
+                <span class="popup_close"></span>
+            </div>
+        </section>
+    </main>
+
+    <script src="./script.js"></script>
+</body>

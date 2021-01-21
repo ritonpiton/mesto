@@ -1,0 +1,9 @@
+.places {
+    display: grid;
+    grid-template-rows: repeat(6, minmax(min-content, max-content));
+    grid-template-columns: repeat(auto-fit, 282px);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 36px;
+    gap: 20px 17px;
+}

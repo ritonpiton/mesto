@@ -1,0 +1,13 @@
+.profile__avatar{
+    display: flex;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+@media all and (min-width: 900px){
+    .profile__avatar{
+        justify-self: start;
+    }
+}
