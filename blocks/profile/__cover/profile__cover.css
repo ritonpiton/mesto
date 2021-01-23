@@ -8,8 +8,8 @@
     "description description";
     grid-template-columns: repeat(2, minmax(min-content, max-content));
     gap: 14px 10px;
-
-    justify-content: center; //выр-е всей сетки
+    
+    justify-content: center; /* выр-е всей сетки */
 }
 
 @media all and (min-width: 900px){
