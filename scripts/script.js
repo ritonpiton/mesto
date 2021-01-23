@@ -1,7 +1,7 @@
 let container = document.querySelector('.content');
 //кнопки
 let editButton = container.querySelector('.profile__edit-btn');
-let closeButton = container.querySelector('.popup_close');
+let closeButton = container.querySelector('.popup__close-btn');
 let saveButton = container.querySelector('.form__submit-btn_action_save');
 editButton.addEventListener('click', popupOpen); 
 closeButton.addEventListener('click', popupClose);
