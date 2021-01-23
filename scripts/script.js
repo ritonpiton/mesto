@@ -15,7 +15,6 @@ let formElement = popup.querySelector('.form');
 // Находим поля формы в DOM
 let nameInput = formElement.querySelector('.form__input-text_type_name');
 let jobInput = formElement.querySelector('.form__input-text_type_job');
-console.log('1'); 
 
 function popupOpen () {
     popup.classList.add('popup_opened');
@@ -28,7 +27,6 @@ function popupClose () {
 }
 
 function formSubmit (evt) {
-    console.log('2'); 
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     curName.textContent = nameInput.value;
     curJob.textContent = jobInput.value;
