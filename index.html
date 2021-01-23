@@ -13,7 +13,7 @@
 
 <body class="page">
     <header class="header">
-        <img class=header__logo src="./images/logo.svg" alt="Лого">
+        <img class=logo_color_white src="./images/logo_white.svg" alt="Лого">
         <div class=header__line></div>
     </header>
     <main class="content">
@@ -22,7 +22,7 @@
             <div class="profile__cover">
                 <h1 class=profile__title>Жак-Ив Кусто</h1>
                 <button class="profile__edit-btn"></button>
-                <p class=profile__description>Исследователь океана</p>
+                <p class=profile__job>Исследователь океана</p>
             </div>
             <button class="profile__add-btn">+</button>
         </section>
@@ -32,7 +32,7 @@
                 <img class="place__image" alt="Изображение 1" src="./images/__image.jpg">
                 <div class="place__content">
                     <h2 class="place__title">Карачаево-Черкесск</h2>
-                    <div class="place__like"></div>
+                    <div class="like"></div>
                 </div>
             </div> 
 
@@ -40,7 +40,7 @@
                 <img class="place__image" alt="Изображение 2" src="./images/__image-1.jpg">
                 <div class="place__content">
                     <h2 class="place__title">Гора Эльбрус</h2>
-                    <div class="place__like"></div>
+                    <div class="like"></div>
                 </div>    
             </div>
                 
@@ -48,7 +48,7 @@
                 <img class="place__image" alt="Изображение 3" src="./images/__image-2.jpg">
                 <div class="place__content">
                     <h2 class="place__title">Домбай</h2>
-                    <div class="place__like"></div>
+                    <div class="like"></div>
                 </div>    
             </div>
             
@@ -57,7 +57,7 @@
                 
                 <div class="place__content">
                     <h2 class="place__title">Алтай</h2>
-                    <div class="place__like"></div>
+                    <div class="like"></div>
                 </div>    
             </div>
 
@@ -65,7 +65,7 @@
                 <img class="place__image" alt="Изображение 5" src="./images/__image-4.jpg">
                 <div class="place__content">
                     <h2 class="place__title">Карелия</h2>
-                    <div class="place__like"></div>
+                    <div class="like"></div>
                 </div>                
             </div>
 
@@ -73,7 +73,7 @@
                 <img class="place__image" alt="Изображение 6" src="./images/__image-5.jpg">
                 <div class="place__content">
                     <h2 class="place__title">Кольский</h2>
-                    <div class="place__like"></div>
+                    <div class="like"></div>
                 </div>
             </div>    
         </section>
@@ -81,19 +81,19 @@
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020. Маргарита Аксютина</p>
         </footer>  
-        <section class="overlay overlay_active">
-            <div class="popup popup_open">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <div class="input">
-                    <input type="text" placeholder="Имя" class="input__text input__text_type_name">
-                    <input type="text" placeholder="О себе" class="input__text input__text_type_description">
+        <section class="popup">
+            
+            <div class="popup__container">
+                <div class="popup_close"></div>
+                <div class="form">
+                    <h2 class="form__title">Редактировать профиль</h2>
+                    <input type="text" placeholder="Имя" class="form__input-text form__input-text_type_name">
+                    <input type="text" placeholder="О себе" class="form__input-text form__input-text_type_job">
                     <button class="form__submit-btn form__submit-btn_action_save">Сохранить</button>
                 </div>  
-
-                <span class="popup_close"></span>
             </div>
         </section>
     </main>
 
-    <script src="./script.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>

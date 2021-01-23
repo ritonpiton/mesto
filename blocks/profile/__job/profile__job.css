@@ -1,5 +1,10 @@
-.profile__description{
+.profile__job{
+    max-width: 282px;
     margin: 0;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;   
 
     font-style: normal;
     font-weight: normal;
@@ -14,7 +19,9 @@
 }
 
 @media all and (min-width: 900px){
-    .profile__description{
+    .profile__job{
+        max-width: calc(880px - (150px + 30px + 120px + 30px));
+
         font-size: 18px;
         line-height: 22px;
         text-align: left;

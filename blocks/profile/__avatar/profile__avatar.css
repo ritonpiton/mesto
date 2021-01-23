@@ -8,6 +8,7 @@
 
 @media all and (min-width: 900px){
     .profile__avatar{
+        margin: 0 30px 0 0 ;
         justify-self: start;
     }
 }

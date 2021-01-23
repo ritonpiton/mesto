@@ -6,4 +6,8 @@
     justify-content: center;
     margin-top: 36px;
     gap: 20px 17px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

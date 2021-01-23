@@ -19,6 +19,7 @@
 
 @media all and (min-width: 900px){
     .profile__edit-btn{
+        justify-self: end;
         width: 24px;
         height: 24px;
     }

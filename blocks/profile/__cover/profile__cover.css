@@ -1,6 +1,6 @@
 .profile__cover{
     width: 100%;
-    margin: 26px auto 36px auto;
+    margin: 26px 36px 36px auto;
 
     display: grid;
     grid-template-areas: 
@@ -17,6 +17,6 @@
         grid-template-rows: repeat(2, minmax(min-content, max-content));
         gap: 16px 18px;
         justify-content: start;
-        margin-left: 30px;
+        margin-left: 0;
     }
 }

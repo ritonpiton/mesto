@@ -1,11 +1,11 @@
-.header__logo{
+.logo_color_white{
     padding-bottom: 31.6px;
     padding-left: 27px;
     width: 104px;
 }
 
 @media all and (min-width: 900px){
-    .header__logo{
+    .logo_color_white{
         width: 142px;
         padding-bottom: 41px;
     }

@@ -1,19 +1,14 @@
 .popup{
-    position: relative;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
-    background-color: #FFFFFF;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
     
-    width: 100%;
-    min-width: 228px;
-    max-width: 430px;
-    padding: 25px 22px;
-    box-sizing: border-box;
-}
-
-@media all and (min-width: 900px){
-    .popup{
-        padding: 34px 36px;
-    }
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 123px 19px;
 }
