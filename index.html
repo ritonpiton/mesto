@@ -13,88 +13,84 @@
 
 <body class="page">
     <header class="header">
-        <img class="logo logo_color_white" src="./images/logo_white.svg" alt="Лого">
-        <div class=header__line></div>
+        <img class="logo" src="./images/logo_white.svg" alt="Логотип Mesto">
     </header>
     <main class="content">
         <section class="profile">
             <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
             <div class="profile__cover">
                 <h1 class=profile__title>Жак-Ив Кусто</h1>
-                <button class="profile__edit-btn"></button>
+                <button type="button" class="profile__edit-btn"></button>
                 <p class=profile__job>Исследователь океана</p>
             </div>
-            <button class="profile__add-btn">+</button>
+            <button type="button" class="profile__add-btn"><img src="./images/add-btn.svg"></button>
         </section>
 
         <section class="places">
             <div class="place">
-                <img class="place__image" alt="Изображение 1" src="./images/__image.jpg">
+                <img class="place__image" alt="Карачаево-Черкесск" src="./images/__image.jpg">
                 <div class="place__content">
                     <h2 class="place__title">Карачаево-Черкесск</h2>
-                    <div class="like"></div>
+                    <button type="button" class="place__like"></div>
                 </div>
             </div> 
 
             <div class="place">
-                <img class="place__image" alt="Изображение 2" src="./images/__image-1.jpg">
+                <img class="place__image" alt="Гора Эльбрус" src="./images/__image-1.jpg">
                 <div class="place__content">
                     <h2 class="place__title">Гора Эльбрус</h2>
-                    <div class="like"></div>
+                    <button type="button" class="place__like"></div>
                 </div>    
             </div>
                 
             <div class="place">
-                <img class="place__image" alt="Изображение 3" src="./images/__image-2.jpg">
+                <img class="place__image" alt="Домбай" src="./images/__image-2.jpg">
                 <div class="place__content">
                     <h2 class="place__title">Домбай</h2>
-                    <div class="like"></div>
+                    <button type="button" class="place__like"></div>
                 </div>    
             </div>
             
             <div class="place">
-                <img class="place__image" alt="Изображение 4" src="./images/__image-3.jpg">
+                <img class="place__image" alt="Алтай" src="./images/__image-3.jpg">
                 
                 <div class="place__content">
                     <h2 class="place__title">Алтай</h2>
-                    <div class="like"></div>
+                    <button type="button" class="place__like"></div>
                 </div>    
             </div>
 
             <div class="place">
-                <img class="place__image" alt="Изображение 5" src="./images/__image-4.jpg">
+                <img class="place__image" alt="Карелия" src="./images/__image-4.jpg">
                 <div class="place__content">
                     <h2 class="place__title">Карелия</h2>
-                    <div class="like"></div>
+                    <button type="button" class="place__like"></div>
                 </div>                
             </div>
 
             <div class="place">
-                <img class="place__image" alt="Изображение 6" src="./images/__image-5.jpg">
+                <img class="place__image" alt="Кольский" src="./images/__image-5.jpg">
                 <div class="place__content">
                     <h2 class="place__title">Кольский</h2>
-                    <div class="like"></div>
+                    <button type="button" class="place__like"></div>
                 </div>
             </div>    
-        </section>
-        
-        <footer class="footer">
-            <p class="footer__copyright">&copy; 2020. Маргарита Аксютина</p>
-        </footer>  
-        <section class="popup">
-            
-            <div class="popup__container">
-                <div class="popup__close-btn"></div>
-                <div class="form">
-                    <h2 class="form__title">Редактировать профиль</h2>
-                    <input type="text" placeholder="Имя" class="form__input-text form__input-text_type_name">
-                    <input type="text" placeholder="О себе" class="form__input-text form__input-text_type_job">
-                    <button class="form__submit-btn form__submit-btn_action_save">Сохранить</button>
-                </div>  
-            </div>
-        </section>
+        </section>  
     </main>
-
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2020. Маргарита Аксютина</p>
+    </footer>
+    <section class="popup">            
+        <div class="popup__container">
+            <button type="button" class="popup__close-btn"></button>
+            <form name="profile-form" class="form">
+                <h2 class="form__title">Редактировать профиль</h2>
+                <input name="name" type="text" placeholder="Имя" class="form__input-text form__input-text_type_name">
+                <input name="job" type="text" placeholder="О себе" class="form__input-text form__input-text_type_job">
+                <button type="submit" class="form__submit-btn form__submit-btn_action_save">Сохранить</button>
+            </form>  
+        </div>
+    </section>
     <script src="./scripts/script.js"></script>
 </body>
 </html>

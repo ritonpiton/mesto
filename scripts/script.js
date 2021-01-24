@@ -1,12 +1,10 @@
 let container = document.querySelector('.content');
-//кнопки
-let editButton = container.querySelector('.profile__edit-btn');
-let closeButton = container.querySelector('.popup__close-btn');
-let saveButton = container.querySelector('.form__submit-btn_action_save');
-editButton.addEventListener('click', popupOpen); 
-closeButton.addEventListener('click', popupClose);
+let popup = document.querySelector('.popup');
 
-let popup = container.querySelector('.popup');
+let editButton = container.querySelector('.profile__edit-btn');
+let closeButton = popup.querySelector('.popup__close-btn');
+//let saveButton = popup.querySelector('.form__submit-btn_action_save');
+
 let profile = container.querySelector('.profile')
 let curName = container.querySelector('.profile__title');
 let curJob = container.querySelector('.profile__job');
@@ -32,4 +30,7 @@ function formSubmit (evt) {
     curJob.textContent = jobInput.value;
     popupClose();
 }
-saveButton.addEventListener('click', formSubmit);
+
+editButton.addEventListener('click', popupOpen); 
+closeButton.addEventListener('click', popupClose);
+formElement.addEventListener('submit', formSubmit);
