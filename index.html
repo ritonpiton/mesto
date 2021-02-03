@@ -27,63 +27,16 @@
         </section>
 
         <section class="places">
-            <div class="place">
-                <img class="place__image" alt="Карачаево-Черкесск" src="./images/__image.jpg">
-                <div class="place__content">
-                    <h2 class="place__title">Карачаево-Черкесск</h2>
-                    <button type="button" class="place__like"></button>
-                </div>
-            </div> 
-
-            <div class="place">
-                <img class="place__image" alt="Гора Эльбрус" src="./images/__image-1.jpg">
-                <div class="place__content">
-                    <h2 class="place__title">Гора Эльбрус</h2>
-                    <button type="button" class="place__like"></button>
-                </div>    
-            </div>
-                
-            <div class="place">
-                <img class="place__image" alt="Домбай" src="./images/__image-2.jpg">
-                <div class="place__content">
-                    <h2 class="place__title">Домбай</h2>
-                    <button type="button" class="place__like"></button>
-                </div>    
-            </div>
             
-            <div class="place">
-                <img class="place__image" alt="Алтай" src="./images/__image-3.jpg">
-                
-                <div class="place__content">
-                    <h2 class="place__title">Алтай</h2>
-                    <button type="button" class="place__like"></button>
-                </div>    
-            </div>
-
-            <div class="place">
-                <img class="place__image" alt="Карелия" src="./images/__image-4.jpg">
-                <div class="place__content">
-                    <h2 class="place__title">Карелия</h2>
-                    <button type="button" class="place__like"></button>
-                </div>                
-            </div>
-
-            <div class="place">
-                <img class="place__image" alt="Кольский" src="./images/__image-5.jpg">
-                <div class="place__content">
-                    <h2 class="place__title">Кольский</h2>
-                    <button type="button" class="place__like"></button>
-                </div>
-            </div>    
         </section>  
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020. Маргарита Аксютина</p>
     </footer>
-    <section class="popup">            
+    <section class="popup popup_type_edit">            
         <div class="popup__container">
-            <button type="button" class="popup__close-btn"></button>
-            <form name="profile-form" class="form">
+            <button type="button" class="popup__close-btn popup__close-btn_type_edit"></button>
+            <form name="form" class="form form__edit">
                 <h2 class="form__title">Редактировать профиль</h2>
                 <input name="name" type="text" placeholder="Имя" class="form__input-text form__input-text_type_name">
                 <input name="job" type="text" placeholder="О себе" class="form__input-text form__input-text_type_job">
@@ -91,6 +44,35 @@
             </form>  
         </div>
     </section>
+    <section class="popup popup_type_add">
+        <div class="popup__container">
+            <button type="button" class="popup__close-btn popup__close-btn_type_add"></button>
+            <form name="form" class="form form__add">
+                <h2 class="form__title">Новое место</h2>
+                <input name="place-name" type=text placeholder="Название" class="form__input-text form__input-text_type_place-name">
+                <input name="place-link" type=text placeholder="Ссылка на картинку" class="form__input-text form__input-text_type_place-link">
+                <button type="submit" class="form__submit-btn form__submit-btn_action_save">Создать</button>
+            </form>
+        </div>
+    </section>
+    <section class="popup popup_type_image">
+        <div class="popup__container popup__container_type_image">
+            <button type="button" class="popup__close-btn popup__close-btn_type_image"></button>
+            <img class="popup__image" alt="#" src="#">
+            <p class="popup__title"></p>
+        </div>
+    </section>
+
+    <template class="place-template">
+        <div class="place">
+            <img class="place__image" alt="#" src="#">
+            <button type="button" class="place__delete"></button>
+            <div class="place__content">
+                <h2 class="place__title"></h2>
+                <button type="button" class="place__like"></button>
+            </div>
+        </div>
+    </template>
     <script src="./scripts/script.js"></script>
 </body>
 </html>

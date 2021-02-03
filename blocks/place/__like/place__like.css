@@ -19,8 +19,3 @@
     opacity: 0.5;
     cursor: pointer;
 }
-
-.place__like:active{
-    background-image: url("./../../../images/like_active.svg");
-    opacity: 1;
-}

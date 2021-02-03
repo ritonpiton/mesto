@@ -7,8 +7,13 @@
 
     background-color: rgba(0, 0, 0, 0.5);
     
-    display: none;
+    
     justify-content: center;
     align-items: center;
     padding: 123px 19px;
+
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s linear;
 }
