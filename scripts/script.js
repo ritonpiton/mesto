@@ -18,8 +18,8 @@ const imageCloseButton = imagePopup.querySelector('.popup__close-btn');
 const imageOpen = imagePopup.querySelector('.popup__container_type_image');
 
 // Находим формы в DOM
-const formElementEdit = editPopup.querySelector('.form__edit');
-const formElementAdd = addPopup.querySelector('.form__add');
+const formElementEdit = editPopup.querySelector('.form_type_edit');
+const formElementAdd = addPopup.querySelector('.form_type_add');
 
 // Находим поля форм в DOM
 let nameInput = formElementEdit.querySelector('.form__input-text_type_name');
