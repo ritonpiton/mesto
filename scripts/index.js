@@ -16,10 +16,11 @@ const imageOpen = imagePopup.querySelector('.popup__container_type_image');
 const formElementEdit = editPopup.querySelector('.form_type_edit');
 const formElementAdd = addPopup.querySelector('.form_type_add');
 // Находим поля форм в DOM
-const nameInput = formElementEdit.querySelector('.form__input-text_type_name');
-const jobInput = formElementEdit.querySelector('.form__input-text_type_job');
-const titleInput = formElementAdd.querySelector('.form__input-text_type_place-name');
-const linkInput = formElementAdd.querySelector('.form__input-text_type_place-link');
+const formInput = document.querySelector('.form__input');
+const nameInput = formElementEdit.querySelector('.form__input_type_name');
+const jobInput = formElementEdit.querySelector('.form__input_type_job');
+const titleInput = formElementAdd.querySelector('.form__input_type_place-name');
+const linkInput = formElementAdd.querySelector('.form__input_type_place-link');
 // просмотр картинки
 const image = imagePopup.querySelector('.popup__image');
 const title = imagePopup.querySelector('.popup__title');
@@ -47,12 +48,12 @@ initialCards.forEach(function (element) {
 // лайк карточки
 function handleLike (evt) {
   evt.target.classList.toggle('place__like_active');
-}
+} 
 // удаление карточки
 function handleDelete (evt) {
   evt.target.closest('.place').remove();
 }
-function openPopup (currentPopup) { // инересно было узнать про camelCase, спасибо!
+function openPopup (currentPopup) {
   currentPopup.classList.add('popup_opened');
 }
 function closePopup (currentPopup) {
@@ -83,14 +84,29 @@ function submitEditForm (evt) {
 // добавление новой карточки
 function submitAddCard (evt) {
   evt.preventDefault();
-  // так мы еще не задавали переменные, интересно
   const card = {
     name: titleInput.value,
     link: linkInput.value
   }
   placesList.prepend(getCard(card));
   closePopup(addPopup);
-  formElementAdd.reset(); // пыталась до ревью сто раз сделать через reset, а сейчас получилось (вроде), ура ^_^
+  formElementAdd.reset(); 
+}
+//закрытие по ESC
+function keyHandler (evt) {
+  //поиск открытого попапа
+  const popupActive = document.querySelector('.popup_opened')
+  if (evt.key === 'Escape') {
+    closePopup(popupActive);
+  }
+}
+//закрытие по клике по оверлею
+function closeByOverlay (evt) {
+  //поиск открытого попапа
+  const popupActive = document.querySelector('.popup_opened')
+  if (evt.target === popupActive) {
+    closePopup(popupActive);
+  }
 }
 
 editButton.addEventListener('click', openEditPopup);
@@ -100,3 +116,5 @@ addCloseButton.addEventListener('click', () => closePopup(addPopup));
 imageCloseButton.addEventListener('click', () => closePopup(imagePopup));
 formElementEdit.addEventListener('submit', submitEditForm);
 formElementAdd.addEventListener('submit', submitAddCard);
+document.addEventListener('keydown', (evt) => keyHandler(evt));
+document.addEventListener('click', (evt) => closeByOverlay(evt));
