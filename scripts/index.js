@@ -7,10 +7,7 @@ const curName = container.querySelector('.profile__title');
 const curJob = container.querySelector('.profile__job');
 // кнопки
 const editButton = container.querySelector('.profile__edit-btn');
-const editCloseButton = editPopup.querySelector('.popup__close-btn');
 const addButton = container.querySelector('.profile__add-btn');
-const addCloseButton = addPopup.querySelector('.popup__close-btn');
-const imageCloseButton = imagePopup.querySelector('.popup__close-btn');
 const imageOpen = imagePopup.querySelector('.popup__container_type_image');
 // Находим формы в DOM
 const formElementEdit = editPopup.querySelector('.form_type_edit');
@@ -53,12 +50,16 @@ function handleLike (evt) {
 function handleDelete (evt) {
   evt.target.closest('.place').remove();
 }
-function openPopup (currentPopup) {
-  currentPopup.classList.add('popup_opened');
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape); 
+  document.addEventListener('click', closeByClick);
 }
-function closePopup (currentPopup) {
-  currentPopup.classList.remove('popup_opened');
-}
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
+  document.removeEventListener('click', closeByClick);
+} 
 function openEditPopup () {
     nameInput.value = curName.textContent;
     jobInput.value = curJob.textContent;
@@ -93,28 +94,29 @@ function submitAddCard (evt) {
   formElementAdd.reset(); 
 }
 //закрытие по ESC
-function keyHandler (evt) {
-  //поиск открытого попапа
-  const popupActive = document.querySelector('.popup_opened')
+function closeByEscape (evt) {
   if (evt.key === 'Escape') {
-    closePopup(popupActive);
+    //поиск открытого попапа
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup);
   }
 }
-//закрытие по клике по оверлею
-function closeByOverlay (evt) {
-  //поиск открытого попапа
-  const popupActive = document.querySelector('.popup_opened')
-  if (evt.target === popupActive) {
-    closePopup(popupActive);
-  }
+//закрытие по клике по оверлею или крестике
+function closeByClick (evt) {
+  const popups = document.querySelectorAll('.popup');
+  popups.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup_opened')) { //поиск открытого попапа
+        closePopup(popup);
+      }
+      if (evt.target.classList.contains('popup__close-btn')) {
+        closePopup(popup);
+      }
+    })
+  })
 }
 
 editButton.addEventListener('click', openEditPopup);
 addButton.addEventListener('click', openAddPopup);
-editCloseButton.addEventListener('click', () => closePopup(editPopup));
-addCloseButton.addEventListener('click', () => closePopup(addPopup));
-imageCloseButton.addEventListener('click', () => closePopup(imagePopup));
 formElementEdit.addEventListener('submit', submitEditForm);
 formElementAdd.addEventListener('submit', submitAddCard);
-document.addEventListener('keydown', (evt) => keyHandler(evt));
-document.addEventListener('click', (evt) => closeByOverlay(evt));
