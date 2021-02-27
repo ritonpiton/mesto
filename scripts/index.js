@@ -24,7 +24,18 @@ const title = imagePopup.querySelector('.popup__title');
 // карточки
 const placesList = document.querySelector('.places');
 const placeTemplate = document.querySelector('.place-template').content;
-
+//закрытие по клику по оверлею или крестике
+const popups = document.querySelectorAll('.popup');
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) { //поиск открытого попапа
+        closePopup(popup);
+    }
+    if (evt.target.classList.contains('popup__close-btn')) {
+      closePopup(popup);
+    }
+  })
+})
 // инициализация карточки
 function getCard(card) {
   const placeElement = placeTemplate.cloneNode(true);
@@ -52,13 +63,11 @@ function handleDelete (evt) {
 }
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closeByEscape); 
-  document.addEventListener('click', closeByClick);
+  document.addEventListener('keydown', closeByEscape);
 }
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEscape);
-  document.removeEventListener('click', closeByClick);
 } 
 function openEditPopup () {
     nameInput.value = curName.textContent;
@@ -100,20 +109,6 @@ function closeByEscape (evt) {
     const openedPopup = document.querySelector('.popup_opened')
     closePopup(openedPopup);
   }
-}
-//закрытие по клике по оверлею или крестике
-function closeByClick (evt) {
-  const popups = document.querySelectorAll('.popup');
-  popups.forEach((popup) => {
-    popup.addEventListener('click', (evt) => {
-      if (evt.target.classList.contains('popup_opened')) { //поиск открытого попапа
-        closePopup(popup);
-      }
-      if (evt.target.classList.contains('popup__close-btn')) {
-        closePopup(popup);
-      }
-    })
-  })
 }
 
 editButton.addEventListener('click', openEditPopup);
