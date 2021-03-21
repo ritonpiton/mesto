@@ -35,13 +35,16 @@ export default class Card {
         image.src = this._image;
         title.textContent = this._title;
         image.alt = this._title;
-        openPopup();
+        openPopup(imagePopup);
     }
     generateCard() {
         this._element = this._getTemplate();
         this._setEventListeners();
-        this._element.querySelector('.place__image').src = this._image;
-        this._element.querySelector('.place__title').textContent = this._title;
+        const placeImage = this._element.querySelector('.place__image')
+        const placeTitle = this._element.querySelector('.place__title')
+        placeImage.src = this._image;
+        placeTitle.textContent = this._title;
+        placeImage.alt = this._title;
         return this._element;
     }
 }
@@ -49,21 +52,3 @@ export default class Card {
 const imagePopup = document.querySelector('.popup_type_image');
 const image = imagePopup.querySelector('.popup__image'); 
 const title = imagePopup.querySelector('.popup__title'); 
-
-//закрытие по ESC
-function closeByEscape(evt) {
-    if (evt.key === 'Escape') {
-      //поиск открытого попапа
-      const openedPopup = document.querySelector('.popup_opened')
-      closePopup(openedPopup);
-    }
-  }
-function openPopup() {
-    
-    imagePopup.classList.add('popup_opened');
-    document.addEventListener('keydown', closeByEscape); 
-} 
-function closePopup(popup) {
-    popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', closeByEscape);
-  }
