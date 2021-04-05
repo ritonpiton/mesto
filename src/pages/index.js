@@ -1,12 +1,12 @@
-import './pages/index.css';
+import './index.css';
 
-import { initialCards } from './scripts/utils/initial-сards.js';
+import { initialCards } from '../scripts/utils/initial-сards.js';
 
 import {
   formConfig,
   editPopup,
   addPopup,
-  imagePopup,
+  imagePopupSelector,
   editButton,
   addButton,
   formElementEdit,
@@ -16,38 +16,39 @@ import {
   titleInput,
   linkInput,
   placesList,
-  containerSelector
-} from './scripts/utils/constants.js'
+  containerSelector,
+  name, job
+} from '../scripts/utils/constants.js'
 
-import Card from './scripts/components/Card.js'
-import FormValidator from './scripts/components/FormValidator.js'
-import Section from './scripts/components/Section.js'
-import PopupWithImage from './scripts/components/PopupWithImage.js'
-import PopupWithForm from './scripts/components/PopupWithForm.js'
-import UserInfo from './scripts/components/UserInfo.js'
+import Card from '../scripts/components/Card.js'
+import FormValidator from '../scripts/components/FormValidator.js'
+import Section from '../scripts/components/Section.js'
+import PopupWithImage from '../scripts/components/PopupWithImage.js'
+import PopupWithForm from '../scripts/components/PopupWithForm.js'
+import UserInfo from '../scripts/components/UserInfo.js'
 
 
 const userInfo = new UserInfo({
-  nameSelector: '.profile__title', 
-  jobSelector: '.profile__job'
+  nameSelector: name, 
+  jobSelector: job
 });
 
 // создание новой карточки
 function createCard (item) {
-  const card = new Card(item, '.place-template', (name, link) => { openImagePopup.open(name, link) });
+  const card = new Card(item, '.place-template', (name, link) => { imagePopup.open(name, link) });
   const cardElement = card.generateCard();
   return cardElement;
 }
 
 // инициализация исходного массива
-const renderElements = new Section ({
+const cardList = new Section ({
   items: initialCards,
   renderer: (item) => {
     const cardElement = createCard(item);
-    renderElements.addItem(cardElement);
+    cardList.addItem(cardElement);
   }
 }, containerSelector)
-renderElements.renderItems();
+cardList.renderItems();
 
 // попап редактирования профиля
 const profilePopup = new PopupWithForm(editPopup, (inputValues) => {
@@ -67,8 +68,8 @@ const newCardPopup = new PopupWithForm(addPopup, () => {
 newCardPopup.setEventListeners();
 
 // попап просмотра картинки
-const openImagePopup = new PopupWithImage(imagePopup);
-openImagePopup.setEventListeners();
+const imagePopup = new PopupWithImage(imagePopupSelector);
+imagePopup.setEventListeners();
 
 // открытие попапа редактирования профиля
 editButton.addEventListener('click', () => {

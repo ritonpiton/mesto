@@ -9,10 +9,10 @@ export const formConfig = {
 export const container = document.querySelector('.content');
 export const editPopup = document.querySelector('.popup_type_edit');
 export const addPopup = document.querySelector('.popup_type_add');
-export const imagePopup = document.querySelector('.popup_type_image');
+export const imagePopupSelector = document.querySelector('.popup_type_image');
 // профиль
-export const name = container.querySelector('.profile__title');
-export const job = container.querySelector('.profile__job');
+export const name = '.profile__title';
+export const job = '.profile__job'
 // кнопки
 export const editButton = container.querySelector('.profile__edit-btn');
 export const addButton = container.querySelector('.profile__add-btn');
@@ -32,5 +32,5 @@ export const placeImage = placeElement.querySelector('.place__image');
 export const placeTitle = placeElement.querySelector('.place__title');
 
 export const popups = document.querySelectorAll('.popup');
-export const image = imagePopup.querySelector('.popup__image'); 
-export const title = imagePopup.querySelector('.popup__title'); 
+export const image = imagePopupSelector.querySelector('.popup__image'); 
+export const title = imagePopupSelector.querySelector('.popup__title'); 

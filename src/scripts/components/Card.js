@@ -19,8 +19,8 @@ export default class Card {
     }
     // лайк карточки
     _handleLike() {
-        const like = this._element.querySelector('.place__like');
-        like.classList.toggle('place__like_active');
+        
+        this._like.classList.toggle('place__like_active');
     }
     // удаление карточки
     _handleDelete() {
@@ -30,8 +30,10 @@ export default class Card {
     // установка слушателей
     _setEventListeners() {
         this._placeImage = this._element.querySelector('.place__image');
+        this._like = this._element.querySelector('.place__like');
+        
         this._element.querySelector('.place__delete').addEventListener('click', () => this._handleDelete());
-        this._element.querySelector('.place__like').addEventListener('click', () => this._handleLike());
+        this._like.addEventListener('click', () => this._handleLike());
         this._placeImage.addEventListener('click', () => this._handleCardClick(this._title, this._image));
     }
     generateCard() {
