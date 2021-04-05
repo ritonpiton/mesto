@@ -1,0 +1,39 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "Верстка сервиса Mesto в соответствии с [макетом](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)\r Добавление валидации форм в соответсвии с [макетом](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0%3A1)",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ritonpiton/mesto.git"
+  },
+  "author": "Margarita Aksutina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ritonpiton/mesto/issues"
+  },
+  "homepage": "https://github.com/ritonpiton/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.2.0",
+    "cssnano": "^4.1.10",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.4.0",
+    "postcss-loader": "^5.2.0",
+    "rimraf": "^3.0.2",
+    "webpack": "^5.30.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "core-js": "^3.10.0"
+  }
+}

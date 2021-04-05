@@ -6,24 +6,23 @@
   <meta name="description" content="портфолио Маргариты Аксютиной на Яндекс.Практикуме">
   <meta name="keywords" content="html. css, javascript">
   <meta name="author" content="Маргарита Аксютина">
-  <link rel="stylesheet" type="text/css" href="./pages/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto Russia</title>
 </head>
 
 <body class="page">
     <header class="header">
-        <img class="logo" src="./images/logo_white.svg" alt="Логотип Mesto">
+        <img class="logo" src="<%=require('./images/logo_white.svg')%>" alt="Логотип Mesto">
     </header>
     <main class="content">
         <section class="profile">
-            <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
+            <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
             <div class="profile__cover">
                 <h1 class=profile__title>Жак-Ив Кусто</h1>
                 <button type="button" class="profile__edit-btn"></button>
                 <p class=profile__job>Исследователь океана</p>
             </div>
-            <button type="button" class="profile__add-btn"><img src="./images/add-btn.svg" alt="Добавить карточку"></button>
+            <button type="button" class="profile__add-btn"><img src="<%=require('./images/add-btn.svg')%>" alt="Добавить карточку"></button>
         </section>
 
         <section class="places">
@@ -85,11 +84,5 @@
             </div>
         </div>
     </template>
-    <script src="./scripts/constants.js"></script>
-    <script src="./scripts/initial-сards.js"></script>
-    <script src="./scripts/utils.js"></script>
-    <script type="module" src="./scripts/Card.js"></script>
-    <script type="module" src="./scripts/FormValidator.js"></script> 
-    <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
