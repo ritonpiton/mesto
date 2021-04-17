@@ -47,7 +47,6 @@ export default class FormValidator {
     }
   }
   
-
   // установка слушателей
   _setEventListeners () {
     this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));

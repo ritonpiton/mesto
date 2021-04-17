@@ -16,18 +16,22 @@
     </header>
     <main class="content">
         <section class="profile">
-            <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
+            <div class="profile__avatar-container">
+                <img class="profile__avatar" src="#" alt="Аватар">
+                <button class="profile__avatar-btn"></button>                
+            </div>
+            
             <div class="profile__cover">
-                <h1 class=profile__title>Жак-Ив Кусто</h1>
+                <h1 class=profile__title></h1>
                 <button type="button" class="profile__edit-btn"></button>
-                <p class=profile__job>Исследователь океана</p>
+                <p class=profile__job></p>
             </div>
             <button type="button" class="profile__add-btn"><img src="<%=require('./images/add-btn.svg')%>" alt="Добавить карточку"></button>
         </section>
 
         <section class="places">
             
-        </section>  
+        </section> 
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020. Маргарита Аксютина</p>
@@ -46,6 +50,7 @@
                     <span class="form__input-error job-input-error" ></span>
                 </label>           
                 <button type="submit" class="form__submit-btn form__submit-btn_action_save">Сохранить</button>
+                <button type="submit" class="form__submit-btn form__submit-btn_action_loading">Сохранение...</button>
             </form>  
         </div>
     </section>
@@ -63,6 +68,7 @@
                     <span class="form__input-error url-input-error"></span>
                 </label>
                 <button type="submit" class="form__submit-btn form__submit-btn_action_save">Создать</button>
+                <button type="submit" class="form__submit-btn form__submit-btn_action_loading">Создание...</button>
             </form>
         </div>
     </section>
@@ -74,13 +80,42 @@
         </div>
     </section>
 
+    <section class="popup popup_type_delete">
+        <div class="popup__container popup__container_type_delete">
+            <form class="form form_type_submit">
+                <button type="button" class="popup__close-btn popup__close-btn_type_delete"></button>
+                <h2 class="form__title form__title_type_delete">Вы уверены?</h2>
+                <button type="submit" class="form__submit-btn form__submit-btn_action_save">Да</button>
+            </form>            
+        </div>
+    </section>
+
+    <section class="popup popup_type_avatar">
+        <div class="popup__container popup__container_type_avatar">
+            <form class="form form_type_avatar">
+                <button type="button" class="popup__close-btn popup__close-btn_type_avatar"></button>
+                <h2 class="form__title form__title_type_avatar">Обновить аватар</h2>
+                <label class="form__field">
+                    <input name="avatar-link" id="avatar-input" type=url placeholder="Ссылка на картинку" class="form__input form__input_type_avatar-link" required>
+                    <span class="form__input-error avatar-input-error"></span>
+                </label>
+                <button type="submit" class="form__submit-btn form__submit-btn_action_save">Сохранить</button>
+                <button type="submit" class="form__submit-btn form__submit-btn_action_loading">Сохранение...</button>
+            </form>
+        </div>
+    </section>
+
     <template class="place-template">
         <div class="place">
             <img class="place__image" alt="#" src="#">
             <button type="button" class="place__delete"></button>
             <div class="place__content">
                 <h2 class="place__title"></h2>
-                <button type="button" class="place__like"></button>
+                <div class="place__like-container">
+                    <button type="button" class="place__like"></button>
+                    <span class="place__like-counter"></span>
+                </div>
+                
             </div>
         </div>
     </template>

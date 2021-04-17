@@ -14,6 +14,19 @@ export default class PopupWithForm extends Popup {
         })
         return this._inputValues;
     }
+    renderLoading(isLoading) {
+        this._saveBtn = this._form.querySelector('.form__submit-btn_action_save');
+        this._saveBtnLoading = this._form.querySelector('.form__submit-btn_action_loading');
+        if (isLoading) {
+            
+            this._saveBtn.classList.add('form__submit-btn_hidden');
+            this._saveBtnLoading.classList.add('form__submit-btn_action_loading_visible');
+        }
+        else {
+            this._saveBtnLoading.classList.remove('form__submit-btn_action_loading_visible');
+            this._saveBtn.classList.remove('form__submit-btn_hidden');
+        }
+    }
     setEventListeners() {
         super.setEventListeners();
         this._form.addEventListener('submit', (evt) => {

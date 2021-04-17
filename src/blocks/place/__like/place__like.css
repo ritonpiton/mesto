@@ -9,10 +9,6 @@
 
     width: 22px;
     height: 19px;
-    margin: auto 20px auto 0;
-    justify-self: end;
-
-    grid-area: like;
 }
 
 .place__like:hover{
