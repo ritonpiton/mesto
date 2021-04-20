@@ -7,6 +7,8 @@ export default class FormValidator {
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
     this._form = form;
+
+    this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
   }
   // показать сообщение об ошибке
   _showInputError (inputElement, errorMessage) { 
@@ -49,7 +51,6 @@ export default class FormValidator {
   
   // установка слушателей
   _setEventListeners () {
-    this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
@@ -60,8 +61,7 @@ export default class FormValidator {
   }
   clearValidation () {
     this._form.reset();
-    const inputList = Array.from(this._form.querySelectorAll(this._inputSelector)); 
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
     this._toggleButtonState();

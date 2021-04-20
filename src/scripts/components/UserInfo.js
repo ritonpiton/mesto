@@ -7,7 +7,8 @@ export default class UserInfo {
     getUserInfo() {
         const input = {
             nameInput: this._nameSelector.textContent,
-            jobInput: this._jobSelector.textContent
+            jobInput: this._jobSelector.textContent,
+            id: this._id
         }
         return input;
     }

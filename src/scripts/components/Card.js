@@ -1,4 +1,6 @@
 // класс карточки
+import {containerSelector} from "../utils/constants";
+
 export default class Card {
     constructor(card, cardSelector, handleCardClick, handleLikeClick, handleDislikeClick, handleDeleteClick, userId) {
         this._card = card
@@ -15,6 +17,8 @@ export default class Card {
 
         this._userId = userId
         this._ownerId = card.owner._id
+
+
     }
     // считали разметку
     _getTemplate() {

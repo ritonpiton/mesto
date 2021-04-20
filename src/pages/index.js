@@ -5,6 +5,7 @@ import './index.css';
 
 import {
   formConfig,
+  placeElement,
   editPopup,
   addPopup,
   imagePopupSelector,
@@ -23,7 +24,7 @@ import {
   placesList,
   containerSelector,
   nameSelector, jobSelector, avatarSelector,
-  name, job, avatar, avatarButton
+  avatarButton
 } from '../scripts/utils/constants.js'
 
 import Card from '../scripts/components/Card.js'
@@ -47,32 +48,27 @@ const userInfo = new UserInfo({
   avatarSelector: avatarSelector
 });
 
+let userId
 Promise.all([api.getInitialCards(), api.getUserInfo()])
 .then(([ cardsArray, userData ]) => {
+  userId = userData._id;
+  // инициализация исходного массива
+  cardList.renderItems(cardsArray);
+  // получение данных профиля с сервера
+  userInfo.setUserInfo(userData);
+  userInfo.editUserAvatar(userData);
 
 })
-
-let userId
-// получение данных профиля с сервера
-api.getUserInfo()
- .then(values => {
-    name.textContent = values.name;
-    job.textContent = values.about;
-    avatar.src = values.avatar;
-    userId = values._id;
-})
-.catch(err => console.log('Ошибка получения данных профиля'));
+.catch(err => console.log('Ошибка инициализации исходных данных'))
 
 // создание новой карточки
 function createCard (item) {
   const card = new Card(
     item, 
-    '.place-template', 
-    // handleCardClick
+    placeElement,
     (name, link) => { 
       imagePopup.open(name, link)
     },
-    // handleLikeClick
     () => { 
       api.setLike(item._id)
       .then(res => {
@@ -80,7 +76,6 @@ function createCard (item) {
       })
       .catch(err => console.log('Ошибка лайка карточки'));
     },
-    // handleDislike
     () => {
       api.deleteLike(item._id)
       .then(res => {
@@ -88,7 +83,6 @@ function createCard (item) {
       })
       .catch(err => console.log('Ошибка дизлайка карточки'));
     },
-    // handleDeleteClick
     () => {
       deletePopup.setSubmitAction(() => {
         api.deleteCard(item._id)
@@ -111,13 +105,7 @@ const cardList = new Section ({
     const cardElement = createCard(item); 
     cardList.addItem(cardElement); 
   } 
-}, containerSelector) 
-
-api.getInitialCards()
-.then((cards) => {
-  cardList.renderItems(cards); 
-})
-.catch(err => console.log('Ошибка инициализации исходного массива'));
+}, containerSelector)
 
 // попап редактирования профиля
 const profilePopup = new PopupWithForm(editPopup, (inputValues) => {
@@ -138,11 +126,11 @@ const profilePopup = new PopupWithForm(editPopup, (inputValues) => {
 profilePopup.setEventListeners();
 
 // попап добавления новой карточки
-const newCardPopup = new PopupWithForm(addPopup, () => {
+const newCardPopup = new PopupWithForm(addPopup, (inputValues) => {
   newCardPopup.renderLoading(true);
   api.addCard({ // отправка новой карточки на сервер
-    name: titleInput.value,
-    link: linkInput.value
+    name: inputValues[titleInput],
+    link: inputValues[linkInput]
   })
     .then(input => {
       placesList.prepend(createCard(input));
@@ -163,10 +151,10 @@ const deletePopup = new PopupWithSubmit(deletePopupSelector);
 deletePopup.setEventListeners();
 
 // попап изменения аватарки
-const avatarPopup = new PopupWithForm(avatarPopupSelector, () => {
+const avatarPopup = new PopupWithForm(avatarPopupSelector, (inputValues) => {
   avatarPopup.renderLoading(true);
   api.setUserAvatar({ 
-    avatar: avatarInput.value 
+    avatar: inputValues[avatarInput]
   })
   .then(input => {
     userInfo.editUserAvatar(input);

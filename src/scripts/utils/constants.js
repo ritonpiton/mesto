@@ -32,17 +32,13 @@ export const formElementAvatar = avatarPopup.querySelector('.form_type_avatar');
 // Находим поля форм в DOM
 export const nameInput = formElementEdit.querySelector('.form__input_type_name');
 export const jobInput = formElementEdit.querySelector('.form__input_type_job');
-export const titleInput = formElementAdd.querySelector('.form__input_type_place-name');
-export const linkInput = formElementAdd.querySelector('.form__input_type_place-link');
-export const avatarInput = formElementAvatar.querySelector('.form__input_type_avatar-link');
+export const titleInput = 'place-name';
+export const linkInput = 'place-link';
+export const avatarInput = 'avatar-link';
 // карточки
 export const placesList = document.querySelector('.places');
 export const containerSelector = '.places';
-export const placeElement = document.querySelector('.place-template');
-export const placeImage = placeElement.querySelector('.place__image');
-export const placeTitle = placeElement.querySelector('.place__title');
-export const deleteButton = placeElement.querySelector('.place__delete');
+export const placeElement = '.place-template';
 
-export const popups = document.querySelectorAll('.popup');
 export const image = imagePopupSelector.querySelector('.popup__image'); 
 export const title = imagePopupSelector.querySelector('.popup__title'); 
